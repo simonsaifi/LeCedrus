@@ -1,0 +1,320 @@
+:root {
+  --lebanon-red: #D12027;
+  --lebanon-green: #285127;
+  --lebanon-white: #FFFFFF;
+}
+
+
+/* Hero Section (Header) */
+#hero {
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 0 1rem; /* Add padding for smaller screens */
+}
+
+#hero h1, #hero p {
+  margin: 0 auto;
+  max-width: 800px; /* Prevent text from stretching too wide */
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: auto; /* Let content dictate height */
+    padding: 2rem 1rem;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 0.9rem;
+  }
+
+  .btn-custom-red {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .menu-card img {
+    height: 200px; /* Reduce image height for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  #hero h1 {
+    font-size: 1.75rem;
+  }
+
+  #hero p {
+    font-size: 0.8rem;
+  }
+
+  .menu-card img {
+    height: 150px; /* Further reduce image height */
+  }
+}
+
+/* Responsive Typography */
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+/* Titles, Headers, and Buttons */
+.header-title, h1, h2, h3, h4, h5, h6, .btn, .btn-menu {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+.description-text, .lead, p {
+  font-family: 'Myriad Variable Concept', sans-serif;
+  font-weight: normal;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--lebanon-red);
+}
+
+/* Card Container */
+.menu-card {
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.menu-card-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-card:hover .menu-card-img {
+  transform: scale(1.1);
+}
+
+/* Overlay */
+.menu-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+}
+
+.menu-card:hover .menu-card-overlay,
+.menu-card-overlay.show-overlay {
+  opacity: 1;
+}
+
+.menu-card-overlay p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  transform: scale(1) !important;
+  transition: none;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* Prevent Overlay Content from Scaling */
+.menu-card:hover .menu-card-overlay p {
+  transform: scale(1);
+}
+
+/* Hover Highlight for Active Card */
+.menu-card.show-overlay {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Titles in Red (Mezzés, Formules, etc.) */
+h4.text-danger {
+  color: var(--lebanon-red);
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+  height: 55px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.nav-link-hover {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.nav-link-hover:hover {
+  color: var(--lebanon-red);
+  transform: translateY(-2px);
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--lebanon-red);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+}
+
+/* Buttons */
+.btn {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-custom-red {
+  background-color: var(--lebanon-red);
+  color: white !important;
+  border-radius: 25px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  width: fit-content;
+  height: fit-content;
+  place-self: center;
+}
+
+.btn-custom-red:hover {
+  background-color: #C4171D;
+  box-shadow: 0 4px 8px rgba(237, 28, 36, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-menu {
+  background-color: var(--lebanon-red);
+  color: white;
+  border-radius: 25px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease-in-out;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .btn-custom-red {
+    max-width: 150px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .navbar-logo {
+    height: 35px;
+  }
+
+  .menu-card-img {
+    height: 200px;
+  }
+}
+
+/* General Layout */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar-offset {
+  margin-top: 70px; /* Adjust to match navbar height */
+}
