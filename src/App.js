@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import MenuPage from './components/MenuPage';
+import AdminPage from './components/AdminPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -29,6 +30,7 @@ function App() {
               <MenuPage />
             </Layout>
           } />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </LanguageProvider>
